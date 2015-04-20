@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<head>
+	<title><%= authorId.name %>'s Blog</title>
+
+</head>
+<body>
+
+	<h1><%= authorId.name %>'s Blog</h1>
+
+	<form action="/author/<%= authorId.author_id %>" method="POST" id="post">
+	<input type="text" name="title" placeholder="Title" required><br><br>
+	<textarea name="body" placeholder="Enter post here..." required></textarea><br>
+	<input type="text" name="url" placeholder="Link (optional)"><br>
+
+	<select name="author">
+	<option name="none">None</option>
+	<!-- <option name="addAuthor" value="addAuthor">Add New Author</option> -->
+	<% addAuthor.forEach(function(obj){ %>
+	<option name="<% obj.authorId %>" value="<% obj.authorId %>"><%= obj.name %></option>
+	<% }); %>
+	</select>
+		
+	<br>
+	
+	<button>Submit</button>
+	
+	</form>
+
+	<a href="/author/<%= authorId.author_id %>/feed">News Feed</a>
+	<a href="/login">Logout</a>
+
+	
+	<% multiPost.forEach(function(obj){ %>
+		<li>
+			<h4><%= obj.title2 %></h4>
+			<p><%= obj.body2 %></p>
+			<a href="<%= obj.url2 %>"><%= obj.url %></a><br>	
+		</li>
+		<a href="/author/<%= obj.authId %>/edit/<%= obj.postId %>">Edit Post</a>
+	<% }); %>
+
+	<% posts.forEach(function(obj){ %>
+		<li>
+			<h4><%= obj.title %></h4>
+			<p><%= obj.body %></p>
+			<a href="<%= obj.url %>"><%= obj.url %></a><br>	
+		</li>
+		<a href="/author/<%= obj.author_id %>/edit/<%= obj.post_id %>">Edit Post</a>
+	<% }); %>
+
+	
+
+</body>
+</html>

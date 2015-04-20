@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>All Authors</title>
+</head>
+<body>
+	<h1>All Authors</h1>
+
+	
+
+	<% allAuthors.forEach(function(obj){ %>
+	<li>
+		<a href="/authors/<%= obj.author_id %>"><%= obj.name %></a>
+	</li>
+	<% }); %>
+		
+		
+
+</body>
+</html>

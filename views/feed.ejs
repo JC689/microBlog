@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>News Feed</title>
+</head>
+<body>
+	<h1>News Feed</h1>
+
+	<form action="/author/<%= authors_id.author_id %>/search" method="POST" id="post">
+	<input type="text" name="search" placeholder="Search">
+	<button>Search</button>
+	</form>
+
+
+	<a href="/author/<%= authors_id.author_id %>">My Blog</a>
+	<a href="/authors">Other Blogs</a>
+
+	
+	<% posts.forEach(function(obj){ %>
+		<li>
+			<h4><%= obj.title %></h4>
+			<p><%= obj.body %></p>
+			<a href="<%= obj.url %>"><%= obj.url %></a><br>
+			Posted By: <%= obj.authorId%>
+		</li>
+	<% }); %>
+
+
+
+
+	
+</body>
+</html>
